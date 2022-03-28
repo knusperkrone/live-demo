@@ -1,0 +1,16 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: fib
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: fib
+    apiVersion: apps/v1
+  minReplicas: 5
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 50
