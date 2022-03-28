@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  labels:
+    run: frontend
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: frontend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      run: frontend
+  template:
+    metadata:
+      labels:
+        run: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: 80

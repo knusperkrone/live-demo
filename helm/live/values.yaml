@@ -1,7 +1,8 @@
 fullname: "ingress-live-demo" 
 
-service:
-  port: 8080
+image:
+  name: "knusperkrone/live-demo-frontend"
+  tag: "base"
 
 ingress:
   enabled: true 
@@ -17,6 +18,10 @@ ingress:
           pathType: Prefix
           service: fib-service
           port: 8080
+        - path: /(.*)
+          pathType: Prefix
+          service: frontend-service
+          port: 80
   tls: 
     - secretName: chart-example-tls
       hosts:
