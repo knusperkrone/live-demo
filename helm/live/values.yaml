@@ -1,0 +1,16 @@
+ingress:
+  enabled: true 
+  className: "nginx"
+  annotations: 
+    kubernetes.io/tls-acme: "true"
+        # cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt
+  hosts:
+    - host: live-demo.bu8.io
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: 
+    - secretName: chart-example-tls
+      hosts:
+        - live-demo.bu8.io
