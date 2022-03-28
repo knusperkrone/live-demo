@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: fib-service
+  name: fib
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: fib-service
+    name: fib
   minReplicas: 5
   maxReplicas: 100
   metrics:
