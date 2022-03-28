@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: live-demo
+  namespace: live-demo
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - live-demo.bu8.io
+      secretName: live-certificate
+  rules:
+    - host: hugo.bu8.io
+      http:
+        paths:
+          - path: /api
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fib
+                port:
+                  number: 80
