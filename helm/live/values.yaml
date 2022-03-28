@@ -1,3 +1,8 @@
+fullname: "ingress-live-demo" 
+
+service:
+  port: 8080
+
 ingress:
   enabled: true 
   className: "nginx"
