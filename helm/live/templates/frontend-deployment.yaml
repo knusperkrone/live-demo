@@ -6,7 +6,7 @@ metadata:
     run: fib
 spec:
   ports:
-  - port: 80
+  - port: 8080
     protocol: TCP
   selector:
     run: fib
@@ -28,4 +28,4 @@ spec:
       - name: fib
         image: knusperkrone/fib
         ports:
-        - containerPort: 80
+        - containerPort: 8080
