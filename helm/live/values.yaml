@@ -8,13 +8,15 @@ ingress:
   className: "nginx"
   annotations: 
     kubernetes.io/tls-acme: "true"
-        # cert-manager.io/cluster-issuer: letsencrypt-staging
-    cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    # cert-manager.io/cluster-issuer: letsencrypt
   hosts:
     - host: live-demo.bu8.io
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
+          service: fib-service
+          port: 8080
   tls: 
     - secretName: chart-example-tls
       hosts:
