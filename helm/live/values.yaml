@@ -14,7 +14,7 @@ ingress:
   hosts:
     - host: live-demo.bu8.io
       paths:
-        - path: /api/fib(/|$)(.*)
+        - path: /api/fib/(.*)
           pathType: Prefix
           service: fib-service
           port: 8080
