@@ -2,7 +2,7 @@ fullname: "ingress-live-demo"
 
 image:
   name: "knusperkrone/live-demo-frontend"
-  tag: "updated"
+  tag: "base"
 
 ingress:
   enabled: true 
